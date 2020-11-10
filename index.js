@@ -105,8 +105,8 @@ function finalScore(inning, xInnings){
 
 function getInningScore(inningCB) {
   return {
-    Home: inningCB(),
-    Away: inningCB()
+    "Away": inningCB(),
+    "Home": inningCB()
   }
 }
 /* Task 5: scoreboard()
@@ -153,8 +153,12 @@ Use the scoreboard function below to do the following:
   */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScoreCB, inningCB, xInnings) {
+  const list = []
+  for(let i = 0; i < xInnings; i++) {
+    list.push(`Inning ${i}: Away ${getInningScoreCB(inningCB).Away} - Home ${getInningScoreCB(inningCB).Home}`)
+  }
+  return list
 }
 
 
