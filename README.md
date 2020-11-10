@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+    Let's say that I have the funcion favoriteSon() that it's inside iAmUrFather() and the parent funciont have some variables,
+    closure its the ability that the favoriteSon() have to access the scope of the parent function
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +67,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+  with the anonimus functions, because its accesing to the scope of personalDice, using name
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+  The name its always the same that we pass as a parameter and what change its newRoll
+
 c. What is the lexical scope of `newRoll`? 
+  I'd say newRoll is a privated variable of the inner function
 
 ### Task 2c - Exit Ticket
 
