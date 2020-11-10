@@ -28,11 +28,15 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+      The diffence it's that counter1 have a privated variable that keep the count and let us return it when the functions its called.
+      While counter2 let the count var as in the global scope and can be access anywhere at any time
   
   2. Which of the two uses a closure? How can you tell?
+      counter1 use closure, how do I know that? because 1. have an inner funcion and 2. that function its accesing the scope of the Father/Hight Order Function
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+     counter2 be better?
+      I'd use closure when I wanna keep my info accesible just when its need it, and counter2 when I wanna leave my info open to be used later on.
 */
 
 // counter1 code
@@ -63,8 +67,7 @@ Use the inning function below to do the following:
 
 function inning(/*Code Here*/){
 
-    /*Code Here*/
-
+  return Math.floor(Math.random() * 3)
 }
 
 /* Task 3: finalScore()
@@ -80,19 +83,31 @@ For example: invoking finalScore(inning, 9) might return this object:
 }
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(inning, xInnings){
+  let scoreHome = 0
+  let scoreAway = 0
+  let totalGame = {
+    "Home": scoreHome,
+    "Away": scoreAway
+  }
+  for(let i = 0; i < xInnings; i++) {
+    scoreHome += inning()
+    scoreAway += inning()
+  }
+  return totalGame
 }
+
 
 /* Task 4: 
 // create a function called getInningScore 
 // the function should take the inning function as an argument 
 // it should return an object with with a score for home and a score for away that that populates from invoking the inning callback. */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inningCB) {
+  return {
+    "Away": inningCB(),
+    "Home": inningCB()
+  }
 }
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
@@ -138,8 +153,12 @@ Use the scoreboard function below to do the following:
   */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScoreCB, inningCB, xInnings) {
+  const list = []
+  for(let i = 0; i < xInnings; i++) {
+    list.push(`Inning ${i}: Away ${getInningScoreCB(inningCB).Away} - Home ${getInningScoreCB(inningCB).Home}`)
+  }
+  return list
 }
 
 
